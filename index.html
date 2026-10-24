@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8ff">
+  <meta name="description" content="A colorful, hands-on coding and robotics curriculum from Nursery to University.">
+  <title>BuxinBloxs Learning Path</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="BuxinBloxs Learning Path home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span><strong>Buxin<span>Bloxs</span></strong><small>LEARN • BUILD • GROW</small></span>
+      </a>
+      <nav class="main-nav">
+        <button class="nav-link active" data-view="home"><span>⌂</span> Learning path</button>
+        <button class="nav-link" data-view="course"><span>▤</span> Course books</button>
+        <button class="nav-link" data-view="blocks"><span>▦</span> Block library</button>
+        <button class="nav-link" data-view="projects"><span>✣</span> Projects</button>
+        <button class="nav-link" data-view="teachers"><span>▧</span> Teacher corner</button>
+        <button class="nav-link" data-view="glossary"><span>⌕</span> Glossary</button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="note-emoji">🚀</span>
+        <strong>Big ideas start small.</strong>
+        <p>Learn one idea. Make something. Share what you discover.</p>
+      </div>
+      <div class="sidebar-bottom">Made for curious minds <span>♥</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">✦</span><strong>BuxinBloxs</strong></div>
+        <div class="crumb" id="breadcrumb">Your learning journey <span>›</span> <b>Explore</b></div>
+        <div class="top-actions">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="global-search" type="search" placeholder="Search lessons, blocks, projects…" aria-label="Search curriculum"><kbd>/</kbd></label>
+          <button class="teacher-toggle" id="teacher-toggle" aria-pressed="false"><span>▣</span> Teacher view</button>
+        </div>
+      </header>
+
+      <section class="view active" id="view-home">
+        <div class="bookshelf-heading"><div><span class="section-kicker">BUXINBLOXS CURRICULUM</span><h1>Your bookshelf</h1><p>Choose a book, open it, and learn one page at a time.</p></div><span class="shelf-decoration" aria-hidden="true">✦</span></div>
+        <div class="shelf-label"><span>THE LEARNING COLLECTION</span><i></i><small>6 BOOKS</small></div>
+        <div class="bookshelf-grid" id="path-grid"></div>
+        <div class="shelf-wood" aria-hidden="true"></div>
+        <footer class="bookshelf-footer"><span>Pick a book to begin reading</span><button id="reset-progress">Reset reading progress</button></footer>
+      </section>
+
+      <section class="view" id="view-course">
+        <div id="book-reader"></div>
+      </section>
+
+      <section class="view" id="view-lesson">
+        <div class="lesson-toolbar"><button class="back-button" id="back-course">← Back to book</button><span class="lesson-position" id="lesson-position"></span></div>
+        <div id="lesson-content"></div>
+      </section>
+
+      <section class="view" id="view-blocks">
+        <div class="page-heading"><div><span class="section-kicker">THE BLOCK LIBRARY</span><h1>Meet your coding blocks.</h1><p>Each block is an instruction. Connect them to tell the computer what to do.</p></div><span class="page-illustration">🧩</span></div>
+        <div class="library-controls"><label class="library-search">⌕ <input id="block-search" type="search" placeholder="Find a block or idea…"></label><select id="block-category" aria-label="Filter by category"><option value="all">All categories</option></select><select id="block-stage" aria-label="Filter by course stage"><option value="all">All stages</option></select></div>
+        <section class="block-lab" aria-label="Interactive Blockly workspace"><div class="lab-copy"><span class="section-kicker">THE REAL BUXINBLOXS BLOCKS</span><h2>Build a tiny program.</h2><p>Choose a starter stack, then drag real BuxinBloxs blocks in the workspace. The colors, shapes, labels, and connections use the app’s Blockly engine.</p><div class="lab-presets"><button data-preset="hello">Say hello</button><button data-preset="dance">Repeat a dance</button><button data-preset="choice">Make a choice</button><button id="clear-stack">Clear</button></div><span class="workspace-hint">Drag blocks to move them. Use the zoom buttons to explore.</span></div><div class="block-stage-view"><div id="live-blockly" class="live-blockly" aria-label="Real BuxinBloxs block workspace"></div></div></section>
+        <div class="block-grid" id="block-grid"></div>
+        <div class="info-banner"><span>🔎</span><p><b>Block names can change by language.</b> The meaning and behavior stay the same. Examples are learning illustrations; check the BuxinBloxs app for the exact toolbox available in your mode.</p></div>
+      </section>
+
+      <section class="view" id="view-projects">
+        <div class="page-heading"><div><span class="section-kicker">MAKE IT YOURS</span><h1>Projects with purpose.</h1><p>Start with a small build, then change it to make it your own.</p></div><span class="page-illustration">🛠️</span></div>
+        <div class="filter-row" id="project-filters"></div><div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="view" id="view-teachers">
+        <div class="page-heading"><div><span class="section-kicker">FOR EDUCATORS</span><h1>Teach the idea, not just the clicks.</h1><p>Flexible lesson plans, assessment guidance, and practical ways to include every learner.</p></div><span class="page-illustration">🍎</span></div>
+        <div class="teacher-grid" id="teacher-grid"></div>
+        <section class="rubric-section"><span class="section-kicker">PROJECT RUBRIC</span><h2>Look for progress in six areas</h2><div class="table-wrap"><table><thead><tr><th>Skill</th><th>Beginning</th><th>Developing</th><th>Secure</th><th>Extending</th></tr></thead><tbody id="rubric-body"></tbody></table></div></section>
+        <div class="info-banner"><span>🗺️</span><p><b>Local standards mapping:</b> Schools can add their national or regional curriculum links here. This learning pathway does not claim official approval or alignment by a ministry.</p></div>
+      </section>
+
+      <section class="view" id="view-glossary">
+        <div class="page-heading"><div><span class="section-kicker">WORDS FOR BIG IDEAS</span><h1>Glossary</h1><p>Clear meanings for the words we use while coding and creating.</p></div><span class="page-illustration">📖</span></div>
+        <label class="library-search glossary-search">⌕ <input id="glossary-search" type="search" placeholder="Search a word…"></label><div class="glossary-grid" id="glossary-grid"></div>
+      </section>
+
+      <section class="search-view hidden" id="search-view"><div class="page-heading"><div><span class="section-kicker">SEARCH RESULTS</span><h1 id="search-title">Find something to learn.</h1></div></div><div id="search-results"></div></section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="vendor/blockly_compressed.js"></script>
+  <script src="vendor/blocks_compressed.js"></script>
+  <script src="vendor/python_compressed.js"></script>
+  <script src="vendor/msg_en.js"></script>
+  <script src="vendor/buxinbloxs-blocks.js"></script>
+  <script src="block-preview.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
